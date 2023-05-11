@@ -2,9 +2,14 @@
   <section>
     <header><h1>My friends</h1></header>
     <ul>
-      <friends-contact></friends-contact>
-      <friends-contact></friends-contact>
-      <friends-contact></friends-contact>
+      <friends-contact
+        v-for='friend in friends'
+        :key="friend.id"
+        :name="friend.name"
+        :phone-number="friend.number"
+        :emailAddress="friend.email"
+        :is-favorite='true'
+      ></friends-contact>
     </ul>
   </section>
 </template>
@@ -13,33 +18,33 @@
 export default {
   data() {
     return {
-    FriendsContacts:[
+      friends: [
         {
-          id:'Avaz',
-          name:'Avazbek Qalandarov',
-          number:12432423423,
-          email:"avaz@qalandar.com"
+          id: "Avaz",
+          name: "Avazbek Qalandarov",
+          number: 12432423423,
+          email: "avaz@qalandar.com",
         },
         {
-          id:'Ali',
-          name:'Ali Qalandarov',
-          number:656565656565,
-          email:"ali@qalandar.com"
+          id: "Ali",
+          name: "Ali Qalandarov",
+          number: 656565656565,
+          email: "ali@qalandar.com",
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
@@ -97,5 +102,4 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
 </style>
